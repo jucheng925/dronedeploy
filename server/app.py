@@ -18,11 +18,12 @@ def ask():
     request_prop = data.get("requestInfo")
     image = Image.query.filter(Image.id == image_id).first()
 
-    print(image_id)
-    print(request_prop)
-    print(image)
+    if image:
+      resp_dict = {"id": image_id, request_prop: getattr(image, request_prop)}
+      response = make_response(resp_dict, 200)
+    else:
+      response = make_response({"error": "Image not found"}, 404)
 
-    response = make_response({"answer": "answer"}, 200)
     return response
 
 

@@ -16,3 +16,20 @@
   text-align: center;
   width: 25%;
 }
+
+.question {
+  margin: 20px;
+}
+
+button {
+  padding: 2px 8px;
+}
+
+.question h2 {
+  margin-bottom: 5px
+}
+
+.answer{
+  margin: 20px;
+
+}

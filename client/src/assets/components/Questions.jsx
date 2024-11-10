@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Questions = ({numOfImages}) => {
+const Questions = ({numOfImages, setResponse}) => {
   const [imageInQuestion, setImageInQuestion] = useState(1)
   const [requestInfo, setRequestInfo] = useState("timestamp")
   
@@ -19,11 +19,12 @@ const Questions = ({numOfImages}) => {
       body: JSON.stringify(formData),
       })
       .then((resp) => resp.json())
-      .then((data) => console.log(data))
+      .then((data) => setResponse(data))
   }
 
   return (
-    <div>
+    <div className='question'>
+      <h2>Ask your question</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="imageInQuestion">In Image #</label>
         <input 

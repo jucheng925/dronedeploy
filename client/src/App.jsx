@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import DroneCards from './assets/components/DroneCards'
 import Questions from './assets/components/Questions'
+import Answer from './assets/components/Answer'
 
 function App() {
   const [images, setImages] = useState([])
+  const [response, setResponse] = useState("")
   const numOfImages = images.length
 
   useEffect(() => {
@@ -23,7 +25,8 @@ function App() {
     <>
       <h1>Drone Images Showcase</h1>
       <DroneCards images={images}/>
-      <Questions numOfImages={numOfImages}/>
+      <Questions numOfImages={numOfImages} setResponse={setResponse}/>
+      {response && <Answer response={response}/>}
     </>
   )
 }
